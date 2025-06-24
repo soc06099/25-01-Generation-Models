@@ -5,8 +5,8 @@ Generation model course at Hallym University
 코드의 원 저작자는 아래에 명시하였으며, 본 저장소는 개인 학습 및 참고용으로 작성되었습니다.
 
 출처 
-- Model <a href="https://github.com/lucidrains/DALLE2-pytorch">DALLE 2-pytorch 구조</a>
-- Weight & Example code <a href="https://github.com/LAION-AI/dalle2-laion">DALLE 2-LION </a>
+- Phil Wang/lucidrains: Model <a href="https://github.com/lucidrains/DALLE2-pytorch">DALLE 2-pytorch 구조</a>
+- LAION AI: Weight & Example code <a href="https://github.com/LAION-AI/dalle2-laion">DALLE 2-LION </a>
 
 ---
 
@@ -27,15 +27,16 @@ PyTorch로 구현된 <a href="https://openai.com/dall-e-2/">DALL·E 2</a>, OpenA
 - Decoder - <a href="https://wandb.ai/veldrovive/dalle2_train_decoder/runs/3d5rytsa?workspace=">Another test run with sparse attention</a>
 - DALL-E 2 🚧 - <a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
 
-- 사용한 예제는 DALL-E 2에서 공개된 모델을 사용하였습니다.
-<a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
-
 ## DALLE2-LION
 다음은 LAION에서 사전 학습한 DALLE-2 모델을 위한 자료 및 도구 모음입니다.</br>
 공식 코드베이스는
 <a href="https://github.com/lucidrains/DALLE2-pytorch">DALLE2-PyTorch</a>
 에서 확인할 수 있습니다.
 
+---
+
+사용한 예제는 DALL-E 2에서 공개된 모델을 사용하였습니다.
+<a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
 예제 코드는 notebooks 내 dalle2_laion_alpha.ipynb 파일로 실행가능합니다. 
 
 ### Install 
