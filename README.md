@@ -256,5 +256,3 @@ setup(
     volume  = {abs/2202.00512}
 }
 ```
-
-*Creating noise from data is easy; creating data from noise is generative modeling.* - <a href="https://arxiv.org/abs/2011.13456">Yang Song's paper</a>
