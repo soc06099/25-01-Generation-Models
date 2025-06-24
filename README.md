@@ -1,7 +1,9 @@
 # 2025-01-Generation-Models
-Generation model course at Hallym University
 --------------------------------
 
+Generation model course at Hallym University 
+
+공부를 위해 원 저자의 코드를 가져와 정리하였습니다. 
 
 <img src="./dalle2.png" width="450px"></img>
 
@@ -12,26 +14,6 @@ Implementation of <a href="https://openai.com/dall-e-2/">DALL-E 2</a>, OpenAI's 
 <a href="https://youtu.be/RJwPN4qNi_Y?t=555">Yannic Kilcher summary</a> | <a href="https://www.youtube.com/watch?v=F1X4fHzF4mQ">AssemblyAI explainer</a>
 
 The main novelty seems to be an extra layer of indirection with the prior network (whether it is an autoregressive transformer or a diffusion network), which predicts an image embedding based on the text embedding from CLIP. Specifically, this repository will only build out the diffusion prior network, as it is the best performing variant (but which incidentally involves a causal transformer as the denoising network 😂)
-
-This model is SOTA for text-to-image for now.
-
-Please join <a href="https://discord.gg/xBPBXfcFHd"><img alt="Join us on Discord" src="https://img.shields.io/discord/823813159592001537?color=5865F2&logo=discord&logoColor=white"></a> if you are interested in helping out with the replication with the <a href="https://laion.ai/">LAION</a> community | <a href="https://www.youtube.com/watch?v=AIOE1l1W0Tw">Yannic Interview</a>
-
-As of 5/23/22, it is no longer SOTA. SOTA will be <a href="https://github.com/lucidrains/imagen-pytorch">here</a>. Jax versions as well as text-to-video project will be shifted towards the Imagen architecture, as it is way simpler.
-
-## Status
-
-- A research group has used the code in this repository to train a functional diffusion prior for their CLIP generations. Will share their work once they release their preprint. This, and <a href="https://github.com/crowsonkb">Katherine's</a> own experiments, validate OpenAI's finding that the extra prior increases variety of generations.
-
-- Decoder is now verified working for unconditional generation on my experimental setup for Oxford flowers. 2 researchers have also confirmed Decoder is working for them.
-
-<img src="./samples/oxford.png" width="450px" />
-
-*ongoing at 21k steps*
-
-- <a href="https://twitter.com/Buntworthy/status/1529475416775434240?t=0GEge3Kr9I36cjcUVCQUTg">Justin Pinkney</a> successfully trained the diffusion prior in the repository for his CLIP to Stylegan2 text-to-image application
-
-- <a href="https://github.com/rom1504">Romain</a> has scaled up training to 800 GPUs with the available scripts without any issues
 
 ## Pre-Trained Models
 
@@ -1092,49 +1074,7 @@ dataset = ImageEmbeddingDataset(
 
 For detailed information on training the diffusion prior, please refer to the [dedicated readme](prior.md)
 
-## Todo
 
-- [x] finish off gaussian diffusion class for latent embedding - allow for prediction of epsilon
-- [x] add what was proposed in the paper, where DDPM objective for image latent embedding predicts x0 directly (reread vq-diffusion paper and get caught up on that line of work)
-- [x] make sure it works end to end to produce an output tensor, taking a single gradient step
-- [x] augment unet so that it can also be conditioned on text encodings (although in paper they hinted this didn't make much a difference)
-- [x] figure out all the current bag of tricks needed to make DDPMs great (starting with the blur trick mentioned in paper)
-- [x] build the cascading ddpm by having Decoder class manage multiple unets at different resolutions
-- [x] add efficient attention in unet
-- [x] be able to finely customize what to condition on (text, image embed) for specific unet in the cascade (super resolution ddpms near the end may not need too much conditioning)
-- [x] offload unets not being trained on to CPU for memory efficiency (for training each resolution unets separately)
-- [x] build out latent diffusion architecture, with the vq-reg variant (vqgan-vae), make it completely optional and compatible with cascading ddpms
-- [x] for decoder, allow ability to customize objective (predict epsilon vs x0), in case latent diffusion does better with prediction of x0
-- [x] use attention-based upsampling https://arxiv.org/abs/2112.11435
-- [x] use inheritance just this once for sharing logic between decoder and prior network ddpms
-- [x] bring in vit-vqgan https://arxiv.org/abs/2110.04627 for the latent diffusion
-- [x] abstract interface for CLIP adapter class, so other CLIPs can be brought in
-- [x] take care of mixed precision as well as gradient accumulation within decoder trainer
-- [x] just take care of the training for the decoder in a wrapper class, as each unet in the cascade will need its own optimizer
-- [x] bring in tools to train vqgan-vae
-- [x] add convnext backbone for vqgan-vae (in addition to vit [vit-vqgan] + resnet)
-- [x] make sure DDPMs can be run with traditional resnet blocks (but leave convnext as an option for experimentation)
-- [x] make sure for the latter unets in the cascade, one can train on crops for learning super resolution (constrain the unet to be only convolutions in that case, or allow conv-like attention with rel pos bias)
-- [x] offer setting in diffusion prior to split time and image embeddings into multiple tokens, configurable, for more surface area during attention
-- [x] make sure resnet hyperparameters can be configurable across unet depth (groups and expansion factor)
-- [x] pull logic for training diffusion prior into a class DiffusionPriorTrainer, for eventual script based + CLI based training
-- [x] make sure the cascading ddpm in the repository can be trained unconditionally, offer a one-line CLI tool for training on a folder of images
-- [x] bring in cross-scale embedding from iclr paper https://github.com/lucidrains/vit-pytorch/blob/main/vit_pytorch/crossformer.py#L14
-- [x] cross embed layers for downsampling, as an option
-- [x] use an experimental tracker agnostic setup, as done <a href="https://github.com/lucidrains/tf-bind-transformer#simple-trainer-class-for-fine-tuning">here</a>
-- [x] use pydantic for config drive training
-- [x] for both diffusion prior and decoder, all exponential moving averaged models needs to be saved and restored as well (as well as the step number)
-- [x] offer save / load methods on the trainer classes to automatically take care of state dicts for scalers / optimizers / saving versions and checking for breaking changes
-- [x] allow for creation of diffusion prior model off pydantic config classes - consider the same for tracker configs
-- [x] bring in skip-layer excitations (from lightweight gan paper) to see if it helps for either decoder of unet or vqgan-vae training (doesnt work well)
-- [x] test out grid attention in cascading ddpm locally, decide whether to keep or remove https://arxiv.org/abs/2204.01697 (keeping, seems to be fine)
-- [x] allow for unet to be able to condition non-cross attention style as well
-- [x] speed up inference, read up on papers (ddim)
-- [x] add inpainting ability using resampler from repaint paper https://arxiv.org/abs/2201.09865
-- [x] add the final combination of upsample feature maps, used in unet squared, seems to have an effect in local experiments
-- [ ] consider elucidated dalle2 https://arxiv.org/abs/2206.00364
-- [ ] add simple outpainting, text-guided 2x size the image for starters
-- [ ] interface out the vqgan-vae so a pretrained one can be pulled off the shelf to validate latent diffusion + DALL-E2
 
 ## Citations
 
