@@ -45,8 +45,8 @@ notebooks 폴더 안에 있는 `dalle2_laion_alpha.ipynb` 파일을 실행하면
 
 ### 환경구축
 ```
-conda create -n [Your enviornment] python=3.9
-conda activate [Your enviornment]
+conda create -n [Your environment] python=3.9
+conda activate [Your environment]
 
 git clone https://github.com/LAION-AI/dalle2-laion.git
 cd dalle2-laion
