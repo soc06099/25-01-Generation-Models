@@ -5,6 +5,8 @@ Generation model course at Hallym University
 
 공부를 위해 원 저자의 코드를 가져와 정리하였습니다. 
 
+출처 
+
 <img src="./dalle2.png" width="450px"></img>
 
 ## DALL-E 2 - Pytorch
@@ -21,24 +23,6 @@ The main novelty seems to be an extra layer of indirection with the prior networ
 - Decoder - <a href="https://wandb.ai/veldrovive/dalle2_train_decoder/runs/jkrtg0so?workspace=user-veldrovive">In-progress test run</a> 🚧
 - Decoder - <a href="https://wandb.ai/veldrovive/dalle2_train_decoder/runs/3d5rytsa?workspace=">Another test run with sparse attention</a>
 - DALL-E 2 🚧 - <a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
-
-## Appreciation
-
-This library would not have gotten to this working state without the help of
-
-- <a href="https://github.com/nousr">Zion</a> for the distributed training code for the diffusion prior
-- <a href="https://github.com/Veldrovive">Aidan</a> for the distributed training code for the decoder as well as the dataloaders
-- <a href="https://github.com/krish240574">Kumar</a> for working on the initial diffusion training script
-- <a href="https://github.com/rom1504">Romain</a> for the pull request reviews and project management
-- <a href="https://github.com/Ciaohe">He Cao</a> and <a href="https://github.com/xiankgx">xiankgx</a> for the Q&A and for identifying of critical bugs
-- <a href="https://github.com/marunine">Marunine</a> for identifying issues with resizing of the low resolution conditioner, when training the upsampler, in addition to various other bug fixes
-- <a href="https://github.com/malumadev">MalumaDev</a> for proposing the use of pixel shuffle upsampler for fixing checkboard artifacts
-- <a href="https://github.com/crowsonkb">Katherine</a> for her advice
-- <a href="https://stability.ai/">Stability AI</a> for the generous sponsorship
-- <a href="https://huggingface.co">🤗 Huggingface</a> and in particular <a href="https://github.com/sgugger">Sylvain</a> for the <a href="https://github.com/huggingface/accelerate">Accelerate</a> library
-- <a href="https://github.com/arogozhnikov">Alex</a> for <a href="https://github.com/arogozhnikov/einops">einops</a>, indispensable tool for tensor manipulation
-
-... and many others. Thank you! 🙏
 
 ## Install
 
