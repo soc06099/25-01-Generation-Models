@@ -6,6 +6,9 @@ Generation model course at Hallym University
 공부를 위해 원 저자의 코드를 가져와 정리하였습니다. 
 
 출처 
+<a href="[https://openai.com/dall-e-2/](https://github.com/lucidrains/DALLE2-pytorch)">DALL·E 2</a>
+https://github.com/LAION-AI/dalle2-laion.git
+
 
 <img src="./dalle2.png" width="450px"></img>
 
