@@ -35,22 +35,33 @@ PyTorch로 구현된 <a href="https://openai.com/dall-e-2/">DALL·E 2</a>, OpenA
 
 ---
 
-사용한 예제는 DALL-E 2에서 공개된 모델을 사용하였습니다.
-<a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
-예제 코드는 notebooks 내 dalle2_laion_alpha.ipynb 파일로 실행가능합니다. 
+## DALL·E 2 - LAION 구현 요약
+이 프로젝트는 OpenAI의 DALL·E 2 논문을 기반으로 한 오픈소스 이미지 생성 모델 구현입니다.</br>
+공식 저장소: https://github.com/LAION-AI/dalle2-laion
 
-### Install 
-예제 코드 실행이 안된다면, 다음과 같이 환경설정을 수행하시면 됩니다. 
+### 예제 실행 
+notebooks 폴더 안에 있는 dalle2_laion_alpha.ipynb 파일을 실행하면 예제 테스트가 가능합니다.</br>
+기본적으로 HuggingFace에 업로드된 사전학습된 DALL·E 2 모델을 사용합니다
 
-conda create -n dalle2
+### 환경구축
+```
+conda create -n dalle2 python=3.9
+conda activate dalle2
 
 git clone https://github.com/LAION-AI/dalle2-laion.git
 cd dalle2-laion
-pip install -e . 
+pip install -e .
+```
+`-e .` 는 editable install로, 로컬 코드 수정 시 바로 반영됩니다.
 
-error가 발생한다면, 
-setup.py 파일 내 
 
+
+설치 중 오류가 날 경우
+setup.py 파일 안의 내용을 확인해 아래처럼 되어 있는지 확인하세요:
+```
+python
+Copy
+Edit
 setup(
     name = "dalle2-laion",
     version = "0.0.1",
@@ -58,7 +69,7 @@ setup(
     include_package_data = True,
     install_requires = [
         "packaging>=21.0",
-        "pydantic>=1.9.0",
+        "pydantic>=1.9.0",         # Pydantic 버전 주의!
         "torch>=1.10",
         "Pillow>=9.0.0",
         "numpy>=1.20.0",
@@ -66,8 +77,8 @@ setup(
         "dalle2-pytorch"
     ]
 )
-
-수정해주세요 
+```
+💡 Pydantic 버전은 1.10.x 또는 2.x 중 코드에 맞는 버전을 선택해야 합니다.
 
 ## Citations
 
