@@ -1,3 +1,8 @@
+# 2025-01-Generation-Models
+Generation model course at Hallym University
+--------------------------------
+
+
 <img src="./dalle2.png" width="450px"></img>
 
 ## DALL-E 2 - Pytorch
