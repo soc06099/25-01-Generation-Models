@@ -1,6 +1,4 @@
 # 2025-01-Generation-Models
---------------------------------
-
 Generation model course at Hallym University 
 
 이 저장소는 원 저자의 공개된 코드를 공부 목적으로 가져와 한글로 재정리한 것입니다. </br>
@@ -32,6 +30,43 @@ PyTorch로 구현된 <a href="https://openai.com/dall-e-2/">DALL·E 2</a>, OpenA
 - 사용한 예제는 DALL-E 2에서 공개된 모델을 사용하였습니다.
 <a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
 
+## DALLE2-LION
+다음은 LAION에서 사전 학습한 DALLE-2 모델을 위한 자료 및 도구 모음입니다.</br>
+공식 코드베이스는
+<a href="https://github.com/lucidrains/DALLE2-pytorch">DALLE2-PyTorch</a>
+에서 확인할 수 있습니다.
+
+예제 코드는 notebooks 내 dalle2_laion_alpha.ipynb 파일로 실행가능합니다. 
+
+### Install 
+예제 코드 실행이 안된다면, 다음과 같이 환경설정을 수행하시면 됩니다. 
+
+conda create -n dalle2
+
+git clone https://github.com/LAION-AI/dalle2-laion.git
+cd dalle2-laion
+pip install -e . 
+
+error가 발생한다면, 
+setup.py 파일 내 
+
+setup(
+    name = "dalle2-laion",
+    version = "0.0.1",
+    packages = find_packages(exclude=[]),
+    include_package_data = True,
+    install_requires = [
+        "packaging>=21.0",
+        "pydantic>=1.9.0",
+        "torch>=1.10",
+        "Pillow>=9.0.0",
+        "numpy>=1.20.0",
+        "click>=8.0.0",
+        "dalle2-pytorch"
+    ]
+)
+
+수정해주세요 
 
 ## Citations
 
