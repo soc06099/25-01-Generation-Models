@@ -24,6 +24,9 @@ PyTorch로 구현된 <a href="https://openai.com/dall-e-2/">DALL·E 2</a>, OpenA
 - Decoder - <a href="https://wandb.ai/veldrovive/dalle2_train_decoder/runs/3d5rytsa?workspace=">Another test run with sparse attention</a>
 - DALL-E 2 🚧 - <a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
 
+- 사용한 예제는 DALL-E 2에서 공개된 모델을 사용하였습니다.
+<a href="https://github.com/LAION-AI/dalle2-laion">DALL-E 2 Laion repository</a>
+
 ## Install
 
 ```bash
