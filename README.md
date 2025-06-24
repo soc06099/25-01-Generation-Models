@@ -83,7 +83,7 @@ setup(
 ### 사전 학습 모델
 - Decoder
     - Original: 5.5GB
-    - New 1B(Aesthetic)
+    - New 1B(Aesthetic): 3.57GB
     - New 1.5B(Aesthetic)
     - New 1.5B (Laion2B)
     - Upsampler
