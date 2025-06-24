@@ -3,12 +3,14 @@
 
 Generation model course at Hallym University 
 
-공부를 위해 원 저자의 코드를 가져와 정리하였습니다. 
+이 저장소는 원 저자의 공개된 코드를 공부 목적으로 가져와 한글로 재정리한 것입니다.
+코드의 원 저작자는 아래에 명시하였으며, 본 저장소는 개인 학습 및 참고용으로 작성되었습니다.
 
 출처 
-<a href="[https://openai.com/dall-e-2/](https://github.com/lucidrains/DALLE2-pytorch)">DALL·E 2</a>
-https://github.com/LAION-AI/dalle2-laion.git
+- Model <a href="[https://openai.com/dall-e-2/](https://github.com/lucidrains/DALLE2-pytorch)">DALLE 2-pytorch 구조</a>
+- Weight & Example code <a href="https://github.com/LAION-AI/dalle2-laion">DALLE 2-LION </a>
 
+---
 
 <img src="./dalle2.png" width="450px"></img>
 
