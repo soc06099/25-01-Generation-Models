@@ -40,7 +40,7 @@ PyTorch로 구현된 <a href="https://openai.com/dall-e-2/">DALL·E 2</a>, OpenA
 공식 저장소: https://github.com/LAION-AI/dalle2-laion
 
 ### 예제 실행 
-notebooks 폴더 안에 있는 dalle2_laion_alpha.ipynb 파일을 실행하면 예제 테스트가 가능합니다.</br>
+notebooks 폴더 안에 있는 `dalle2_laion_alpha.ipynb` 파일을 실행하면 예제 테스트가 가능합니다.</br>
 기본적으로 HuggingFace에 업로드된 사전학습된 DALL·E 2 모델을 사용합니다
 
 ### 환경구축
@@ -88,8 +88,9 @@ setup(
     - New 1.5B (Laion2B)
     - Upsampler
       
-- Prior: 3.8GB
+- Prior: 5.85GB
 
+---
 ## Citations
 
 ```bibtex
