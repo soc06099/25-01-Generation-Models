@@ -80,6 +80,16 @@ setup(
 ```
 💡 Pydantic 버전은 1.10.x 또는 2.x 중 코드에 맞는 버전을 선택해야 합니다.
 
+### 사전 학습 모델
+- Decoder
+    - Original: 5.5GB
+    - New 1B(Aesthetic)
+    - New 1.5B(Aesthetic)
+    - New 1.5B (Laion2B)
+    - Upsampler
+      
+- Prior: 3.8GB
+
 ## Citations
 
 ```bibtex
